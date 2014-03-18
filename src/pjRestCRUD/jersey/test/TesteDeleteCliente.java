@@ -1,0 +1,41 @@
+package pjRestCRUD.jersey.test;
+
+import java.io.IOException;
+
+import org.apache.commons.httpclient.Header;
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.HttpException;
+import org.apache.commons.httpclient.methods.DeleteMethod;
+
+public class TesteDeleteCliente {
+
+	public static void main(String[] args) throws HttpException, IOException {
+		
+		String URI = "http://localhost:8080/pjRestCRUD/recursoCliente/1395111974927";
+		excluiCliente(URI);
+	}
+	
+	private static void excluiCliente(String idRecurso) throws HttpException, IOException{
+
+DeleteMethod deleteMhetod = new DeleteMethod(idRecurso);
+		
+		HttpClient client = new HttpClient();
+		
+		try {
+			int result = client.executeMethod(deleteMhetod);
+			
+			System.out.println("Status de Resposta com codigo: " + result);
+			
+			System.out.println("Cabeçalho de Resposta: ");
+			
+			Header[] headers = deleteMhetod.getResponseHeaders();
+			
+			for (int i = 0; i < headers.length; i++) {
+				System.out.println(headers[i].toString());
+			}
+		} finally {
+			deleteMhetod.releaseConnection();
+		}
+	}
+		
+}

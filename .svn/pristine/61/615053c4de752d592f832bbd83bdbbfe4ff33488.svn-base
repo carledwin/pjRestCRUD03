@@ -1,0 +1,38 @@
+package pjRestCRUD.jersey.dao;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import pjRestCRUD.jersey.pojo.Cliente;
+import pjRestCRUD.jersey.util.ConnectDB;
+
+public class AccessCliente {
+
+	public ArrayList<Cliente> getClientes(ConnectDB con) throws SQLException
+	{
+		/*ArrayList<Cliente> clienteList = new ArrayList<Cliente>();
+		PreparedStatement stmt = con.prepareStatement("SELECT * FROM tb_cliente");
+		ResultSet rs = stmt.executeQuery();
+		try
+		{
+			while(rs.next())
+			{
+				Cliente clienteObj = new Cliente();
+				clienteObj.setClienteId(rs.getInt("cliente_id"));
+				clienteObj.setClienteNome(rs.getString("cliente_nome"));
+				clienteObj.setClienteSNome(rs.getString("cliente_s_nome"));
+				clienteObj.setClienteEmail(rs.getString("cliente_email"));
+				clienteList.add(clienteObj);
+			}
+		} catch (SQLException e)
+		{		
+			e.printStackTrace();
+		}
+		return clienteList;
+		*/
+		
+		return null;
+	}
+}
